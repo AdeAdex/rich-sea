@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`h-screen bg-gray-100 transition-width duration-300 mt-[70px] ${
+      className={`hidden md:block h-screen bg-gray-100 transition-width duration-300 mt-[70px] ${
         isCollapsed ? "w-16" : "w-64"
       }`}
     >
