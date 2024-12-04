@@ -34,36 +34,34 @@ const Communities: React.FC<CommunitiesProps> = ({ suggestedCommunities }) => {
         </h3>
         <ul className="space-y-4">
           {communitiesToDisplay.map((community) => (
-            <>
-              <li
-                key={community.id}
-                className="flex items-center justify-between"
-              >
-                <div className="flex items-center gap-3">
-                  {community.image && (
-                    <Image
-                      src={community.image}
-                      alt={community.name}
-                      className="w-12 h-12 rounded-full"
-                      width={40}
-                      height={40}
-                    />
-                  )}
-                  <div>
-                    <p className="font-bold font-raleway text-[17px]">
-                      {community.name}
-                    </p>
-                    <span className="text-sm text-gray-500 font-raleway font-[400]">
-                      {community.followers} followers
-                    </span>
-                  </div>
+            <li
+              key={community.id}
+              className="flex items-center justify-between"
+            >
+              <div className="flex items-center gap-3">
+                {community.image && (
+                  <Image
+                    src={community.image}
+                    alt={community.name}
+                    className="w-12 h-12 rounded-full"
+                    width={40}
+                    height={40}
+                  />
+                )}
+                <div>
+                  <p className="font-bold font-raleway text-[17px]">
+                    {community.name}
+                  </p>
+                  <span className="text-sm text-gray-500 font-raleway font-[400]">
+                    {community.followers} followers
+                  </span>
                 </div>
-                <button className="text-[11px] py-1 px-2 rounded-full border border-gray-500 hover:bg-rich-sea-sky hover:text-white font-[500] font-raleway">
-                  Follow
-                </button>
-              </li>
+              </div>
+              <button className="text-[11px] py-1 px-2 rounded-full border border-gray-500 hover:bg-rich-sea-sky hover:text-white font-[500] font-raleway">
+                Follow
+              </button>
               <hr className="border-t-1 border-gray-100 my-8" />
-            </>
+            </li>
           ))}
         </ul>
         <button

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
-import Sidebar from "./components/sidebar/Sidebar";
 import { MantineProvider } from "@mantine/core";
 // import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
@@ -39,17 +38,11 @@ export default function RootLayout({
         className={`${inter.variable} ${raleway.variable} antialiased flex`}
       >
         <MantineProvider>
-          {/* Sidebar */}
-          <Sidebar />
-
-          {/* Main content area */}
-          <div className="flex-1 flex flex-col">
-            {/* Navbar */}
+          
             <Navbar />
 
             {/* Page Content */}
             <main className="">{children}</main>
-          </div>
         </MantineProvider>
       </body>
     </html>
