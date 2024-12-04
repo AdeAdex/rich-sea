@@ -20,8 +20,8 @@ const Task = () => {
 
   return (
     <div className="p-4">
-      <div className="flex justify-between font-raleway">
-        <h2 className="text-2xl font-bold mb-4">Tasks</h2>
+      <div className="flex justify-between font-raleway mb-4">
+        <h2 className="text-2xl font-bold">Tasks</h2>
         <div className="flex space-x-4">
           {buttons.map((button) => (
             <button
