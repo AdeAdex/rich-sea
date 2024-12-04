@@ -20,14 +20,14 @@ const Task = () => {
 
   return (
     <div className="p-4">
-      <div className="flex justify-between font-raleway mb-4">
-        <h2 className="text-2xl font-bold">Tasks</h2>
-        <div className="flex space-x-4">
+      <div className="flex flex-col md:flex-row justify-between font-raleway mb-4">
+        <h2 className="text-2xl font-bold text-center md:text-left mb-3 md:mb-0">Tasks</h2>
+        <div className="flex space-x-4 justify-center md:justify-normal">
           {buttons.map((button) => (
             <button
               key={button.id}
               onClick={() => handleClick(button.id)}
-              className={`px-4 rounded-xl font-[800] text-[16px]  ${
+              className={`px-4 rounded-xl font-[800] text-[16px]   ${
                 activeButton === button.id
                   ? "bg-black text-white"
                   : "bg-white text-[#888888] border border-gray-300"
