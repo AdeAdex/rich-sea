@@ -36,7 +36,7 @@ const Communities: React.FC<CommunitiesProps> = ({ suggestedCommunities }) => {
           {communitiesToDisplay.map((community) => (
             <li
               key={community.id}
-              className="flex items-center justify-between"
+              className="flex items-center justify-between relative"
             >
               <div className="flex items-center gap-3">
                 {community.image && (
@@ -60,7 +60,7 @@ const Communities: React.FC<CommunitiesProps> = ({ suggestedCommunities }) => {
               <button className="text-[11px] py-1 px-2 rounded-full border border-gray-500 hover:bg-rich-sea-sky hover:text-white font-[500] font-raleway">
                 Follow
               </button>
-              <hr className="border-t-1 border-gray-100 my-8" />
+              <hr className="absolute bottom-0 left-0 border-t-1 border-gray-100 my-8" />
             </li>
           ))}
         </ul>
