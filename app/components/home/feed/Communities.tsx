@@ -36,7 +36,7 @@ const Communities: React.FC<CommunitiesProps> = ({ suggestedCommunities }) => {
           {communitiesToDisplay.map((community) => (
             <li
               key={community.id}
-              className="flex items-center justify-between"
+              className="flex items-center justify-between bg-red-500"
             >
               <div className="flex items-center gap-3">
                 {community.image && (

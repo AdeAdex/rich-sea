@@ -24,7 +24,7 @@ const FeedContent = ({ feed, index }: { feed: Feed; index: number }) => {
   return (
     <div className={`py-4 px-8 ${bgClass} rounded-lg shadow`}>
       {/* Header Section */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-4 md:gap-0">
         <div className="flex gap-3 items-center">
           <Image
             src={feed.user.image}
@@ -64,9 +64,9 @@ const FeedContent = ({ feed, index }: { feed: Feed; index: number }) => {
       <hr className="border-t-1 border-[#7A7A7A] my-8" />
 
       {/* Footer Section */}
-      <div className="flex gap-8">
-        <Image src={upvote} alt="upvote" />
-        <div className="flex gap-2 my-auto">
+      <div className="flex flex-col md:flex-row gap-8 w-full">
+        <Image src={upvote} alt="upvote" className="mx-auto md:mx-0"/>
+        <div className="flex gap-2 my-auto mx-auto md:mx-0">
           <BsChatDots size={20} />
           <span>{feed.comments} comments</span>
         </div>

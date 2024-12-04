@@ -13,7 +13,7 @@ export default function Home() {
       <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
 
       {/* Conditionally render content based on the active item */}
-      <main className="flex-1 py-8 px-8">
+      <main className="flex-1 py-8 px-4 md:px-8">
         {activeItem === "News Feeds" && <Feed />}
         {activeItem === "Tasks" && <Task />}
       </main>

@@ -8,7 +8,7 @@ import yellowVector from "@/public/images/yellow-vector.png";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md fixed w-full left-0 z-50">
+    <nav className="flex items-center justify-between px-4 md:px-8 py-4 bg-white shadow-md fixed w-full left-0 z-50">
       {/* Logo Section and Search Box */}
       <div className="flex gap-x-[100px]">
         {/* Logo Section */}
