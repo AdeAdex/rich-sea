@@ -24,8 +24,8 @@ const HeroSection = () => {
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}
         dragFree
-        nextControlIcon={<FaChevronRight size={20} />}
-        previousControlIcon={<FaChevronLeft size={20} />}
+        // nextControlIcon={<FaChevronRight size={20} />}
+        // previousControlIcon={<FaChevronLeft size={20} />}
       >
         {heroImages.map((image, index) => (
           <Carousel.Slide key={index}>
