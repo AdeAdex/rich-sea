@@ -32,7 +32,7 @@ const Navbar = () => {
             placeholder="Search"
             className="w-full px-12 py-2 text-sm text-gray-700 bg-rich-sea-gray rounded-full focus:outline-none focus:ring-2 focus:ring-rich-sea-sky"
           />
-          <div className="absolute top-[-3px] left-4 flex items-center justify-center h-full text-gray-500">
+          <div className="absolute top-0 left-4 flex items-center justify-center h-full text-gray-500">
             <AiOutlineSearch size={22} />
           </div>
         </div>

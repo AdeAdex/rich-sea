@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import { MantineProvider } from "@mantine/core";
+// import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
 
 // Google font: Inter
@@ -47,7 +48,7 @@ export default function RootLayout({
             <Navbar />
 
             {/* Page Content */}
-            <main className="p-4">{children}</main>
+            <main className="">{children}</main>
           </div>
         </MantineProvider>
       </body>

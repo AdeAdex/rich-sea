@@ -30,6 +30,7 @@ export default {
         "rich-sea-color": "#121111",
         "rich-sea-green": "#A0E548",
         "rich-sea-yellow": "#FFC83C",
+        "rich-sea-light-yellow": "#FFF6DF",
         "rich-sea-sky": "#65ABFF",
         "rich-sea-pink": "#FFC2C2",
         "rich-sea-gray": "#F1F1F1",

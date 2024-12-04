@@ -9,9 +9,10 @@ import heroImage2 from "@/public/images/hero.png";
 import heroImage3 from "@/public/images/hero.png";
 import heroImage4 from "@/public/images/hero.png";
 import Image from "next/image";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
 const HeroSection = () => {
-  const autoplay = useRef(Autoplay({ delay: 2000 }));
+  const autoplay = useRef(Autoplay({ delay: 10000 }));
 
   const heroImages = [heroImage1, heroImage2, heroImage3, heroImage4];
   return (
@@ -22,6 +23,9 @@ const HeroSection = () => {
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}
+        dragFree
+        nextControlIcon={<FaChevronRight size={20} />}
+        previousControlIcon={<FaChevronLeft size={20} />}
       >
         {heroImages.map((image, index) => (
           <Carousel.Slide key={index}>
