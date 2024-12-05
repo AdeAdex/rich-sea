@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import logo from "@/public/images/rich-sea-logo.png";
 import profile from "@/public/images/profile.png";
@@ -5,6 +7,9 @@ import { FiPlus } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import whiteVector from "@/public/images/white-vector.png";
 import yellowVector from "@/public/images/yellow-vector.png";
+import { MdLogin } from "react-icons/md";
+import { Menu, rem } from "@mantine/core";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -64,13 +69,29 @@ const Navbar = () => {
           </div>
         </div>
         <div className="w-[38px] h-[38px] overflow-hidden hidden md:flex">
-          <Image
-            src={profile}
-            alt="User Avatar"
-            width={38}
-            height={38}
-            className="w-full h-full object-cover"
-          />
+          <Menu>
+            <Menu.Target>
+              <Image
+                src={profile}
+                alt="User Avatar"
+                width={38}
+                height={38}
+                className="w-full h-full object-cover"
+              />
+            </Menu.Target>
+            <Menu.Dropdown>
+              <Menu.Item
+                component={Link}
+                href="/login"
+                leftSection={
+                  <MdLogin style={{ width: rem(14), height: rem(14) }} />
+                }
+              >
+                Login
+              </Menu.Item>
+              <Menu.Item>Option 2</Menu.Item>
+            </Menu.Dropdown>
+          </Menu>
         </div>
       </div>
     </nav>

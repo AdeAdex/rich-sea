@@ -3,7 +3,7 @@ import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import { MantineProvider } from "@mantine/core";
-// import "@mantine/carousel/styles.css";
+import "@mantine/core/styles.css";
 
 // Google font: Inter
 const inter = Inter({

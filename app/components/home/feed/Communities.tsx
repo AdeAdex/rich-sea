@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 
+// skgOQMoxyMY42afvpXIDc5lOffP6cOV04nVcW3WbLiokboR9JHbN3la7ajKkcE38acAF3Ksu4IXji8K1oV80EpBcnE5RWbOBogeudiHGjR19IrK9evoALc6Wq0zJqugPXQMOglx5n4Llu8ws63L22VrJKv8DcZThkL9gMZx7irArCzTNuDbw
+
 interface Community {
   id: number;
   name: string;
