@@ -54,14 +54,14 @@ const TaskCard: React.FC<TaskCardProps> = ({
 
       {/* Title and Details */}
       <div className="px-3">
-        <h3 className="text-[10px] md:text-lg font-[800] mt-2 text-center">{title}</h3>
-        <p className="text-[8px] md:text-sm text-gray-500 mt-1 font-[600] font-inter flex justify-between w-full">
+        <h3 className="text-[10px] md:text-lg font-[800] mt-2 text-center line-clamp-2">{title}</h3>
+        <p className="text-[6px] md:text-sm text-gray-500 mt-1 font-[600] font-inter flex justify-between w-full">
           Reward zone: <span className="font-[500]">{reward}</span>
         </p>
-        <p className="text-[8px] md:text-sm text-gray-500 font-[600] font-inter flex justify-between w-full">
+        <p className="text-[6px] md:text-sm text-gray-500 font-[600] font-inter flex justify-between w-full">
           Participants: <span className="font-[500]">{participants}</span>
         </p>
-        <p className="text-[8px] md:text-sm text-gray-500 font-[600] font-inter flex justify-between w-full">
+        <p className="text-[6px] md:text-sm text-gray-500 font-[600] font-inter flex justify-between w-full">
           End date: <span className="font-[500]">{endDate}</span>
         </p>
       </div>
