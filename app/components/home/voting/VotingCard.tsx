@@ -15,7 +15,7 @@ const VotingCard: React.FC<VotingCardProps> = ({
   votes,
   totalParticipants,
 }) => {
-  const totalVotes = votes.reduce((sum, vote) => sum + vote.count, 0);
+//   const totalVotes = votes.reduce((sum, vote) => sum + vote.count, 0);
 
   return (
     <div className="border rounded-lg shadow-md p-4 bg-white w-full font-raleway">
