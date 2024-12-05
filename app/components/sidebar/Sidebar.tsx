@@ -25,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
     { label: "News Feeds", icon: <CiSquarePlus size={24} /> },
     { label: "Tasks", icon: <BsFillRocketTakeoffFill size={24} /> },
     { label: "Voting", icon: <MdBarChart size={24} /> },
-    { label: "Stacking", icon: <RiSettings5Fill size={24} /> },
+    { label: "Staking", icon: <RiSettings5Fill size={24} /> },
     { label: "Log Out", icon: <FaSignOutAlt size={24} /> },
   ];
 
