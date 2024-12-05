@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { FaSignOutAlt, FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import React from "react";
+import { FaSignOutAlt } from "react-icons/fa";
 import { RiSettings5Fill } from "react-icons/ri";
 import { MdBarChart } from "react-icons/md";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
