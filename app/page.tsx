@@ -5,6 +5,7 @@ import Feed from "./components/home/feed/Feed";
 import Task from "./components/home/task/Task";
 import Sidebar from "./components/sidebar/Sidebar";
 import Voting from "./components/home/voting/Voting";
+import Staking from "./components/home/staking/Staking";
 
 export default function Home() {
   const [activeItem, setActiveItem] = useState<string>("News Feeds");
@@ -18,6 +19,7 @@ export default function Home() {
         {activeItem === "News Feeds" && <Feed />}
         {activeItem === "Tasks" && <Task />}
         {activeItem === "Voting" && <Voting />}
+        {activeItem === "Staking" && <Staking />}
       </main>
     </div>
   );
