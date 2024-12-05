@@ -8,6 +8,9 @@ import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { CiSquarePlus } from "react-icons/ci";
 import Image from "next/image";
 import profile from "@/public/images/profile.png";
+import { MdLogin } from "react-icons/md";
+import { Menu, rem } from "@mantine/core";
+import Link from "next/link";
 
 interface SidebarProps {
   activeItem: string;
@@ -37,7 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
           isCollapsed ? "w-24" : "w-64"
         }`}
       > */}
-        <div
+      <div
         className={`fixed left-0 hidden md:block h-screen transition-width duration-300 bg-white shadow-lg border-r-2 border-gray-200 py-8 px-4 w-64`}
       >
         {/* <div className="flex items-center justify-end p-4">
@@ -68,7 +71,6 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
       </div>
 
       {/* Sidebar for mobile */}
-      {/* Sidebar for mobile */}
       <div className="fixed bottom-0 left-0 right-0 z-10 md:hidden bg-white border-t-2 border-gray-200 shadow-lg flex justify-around py-2">
         {sidebarItems.map((item) => (
           <div
@@ -78,22 +80,43 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
                 ? "text-rich-sea-sky font-bold"
                 : "text-gray-500"
             }`}
-            onClick={() => setActiveItem(item.label)}
+            onClick={() => {
+              // Only update activeItem for non-profile items
+              if (item.label !== "Log Out") {
+                setActiveItem(item.label);
+              }
+            }}
           >
             {item.label === "Log Out" ? (
               <div className="w-[35px] h-[35px] overflow-hidden">
-                <Image
-                  src={profile}
-                  alt="User Avatar"
-                  width={35}
-                  height={35}
-                  className="w-full h-full object-cover"
-                />
+                <Menu>
+                  <Menu.Target>
+                    <Image
+                      src={profile}
+                      alt="User Avatar"
+                      width={38}
+                      height={38}
+                      className="w-full h-full object-cover cursor-pointer"
+                    />
+                  </Menu.Target>
+                  <Menu.Dropdown>
+                    <Menu.Item
+                      component={Link}
+                      href="/login"
+                      leftSection={
+                        <MdLogin style={{ width: rem(14), height: rem(14) }} />
+                      }
+                    >
+                      Login
+                    </Menu.Item>
+                    <Menu.Item>Option 2</Menu.Item>
+                  </Menu.Dropdown>
+                </Menu>
               </div>
             ) : (
               item.icon
             )}
-            {/* <span className="text-xs">{item.label}</span> */}
+            {/* Optionally show the label for other items */}
           </div>
         ))}
       </div>

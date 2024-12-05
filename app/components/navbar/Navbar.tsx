@@ -18,16 +18,18 @@ const Navbar = () => {
       <div className="flex gap-x-[100px]">
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
-          <Image
-            src={logo}
-            alt="RichSea Logo"
-            priority
-            quality={100}
-            //   width={200} // Default width for larger screens
-            //   height={30} // Defined height
+          <Link href="/">
+            <Image
+              src={logo}
+              alt="RichSea Logo"
+              priority
+              quality={100}
+              //   width={200} // Default width for larger screens
+              //   height={30} // Defined height
 
-            className="object-contain w-[150px] md:w-[200px]" // Updates width for medium and larger screens
-          />
+              className="object-contain w-[150px] md:w-[200px]" // Updates width for medium and larger screens
+            />
+          </Link>
         </div>
 
         {/* Search Box */}
