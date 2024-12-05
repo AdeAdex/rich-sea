@@ -19,7 +19,7 @@ const Task = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="">
       <div className="flex flex-col md:flex-row justify-between font-raleway mb-4">
         <h2 className="text-2xl font-bold text-center md:text-left mb-3 md:mb-0">Tasks</h2>
         <div className="flex space-x-4 justify-center md:justify-normal">

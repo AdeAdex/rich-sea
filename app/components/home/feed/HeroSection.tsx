@@ -39,7 +39,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative w-full h-[250px] md:h-[300px] lg:h-[400px] overflow-hidden rounded-xl">
+    <div className="relative w-full h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden rounded-xl">
       {/* Sliding Animation */}
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
