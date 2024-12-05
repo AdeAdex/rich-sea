@@ -3,8 +3,7 @@ import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import { MantineProvider } from "@mantine/core";
-// import "@mantine/core/styles.css";
-import "@mantine/carousel/styles.css";
+// import "@mantine/carousel/styles.css";
 
 // Google font: Inter
 const inter = Inter({
@@ -34,15 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${raleway.variable} antialiased flex`}
-      >
+      <body className={`${inter.variable} ${raleway.variable} antialiased flex`}>
         <MantineProvider>
-          
-            <Navbar />
-
-            {/* Page Content */}
-            <main className="">{children}</main>
+          <Navbar />
+          {children}
         </MantineProvider>
       </body>
     </html>
