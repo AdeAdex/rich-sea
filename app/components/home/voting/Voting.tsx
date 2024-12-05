@@ -1,14 +1,11 @@
-"use client";
-
-import { taskDatas } from "@/app/data/taskData";
+import votingData from "@/app/data/votingData";
 import React, { useState } from "react";
-import TaskCard from "./TaskCard";
+import VotingCard from "./VotingCard";
 
-const Task = () => {
+const Voting = () => {
   const buttons = [
     { id: "all", label: "All" },
-    { id: "recent", label: "Recent" },
-    { id: "completed", label: "Completed" },
+    { id: "upcoming", label: "Upcoming" },
   ];
 
   const [activeButton, setActiveButton] = useState("all");
@@ -17,11 +14,12 @@ const Task = () => {
     setActiveButton(id);
     console.log(`${id} button clicked!`); // Example action
   };
-
   return (
     <div className="pb-10">
       <div className="flex flex-col md:flex-row justify-between font-raleway mb-4">
-        <h2 className="text-2xl font-bold text-center md:text-left mb-3 md:mb-0">Tasks</h2>
+        <h2 className="text-2xl font-bold text-center md:text-left mb-3 md:mb-0">
+          Voting
+        </h2>
         <div className="flex space-x-4 justify-center md:justify-normal">
           {buttons.map((button) => (
             <button
@@ -38,18 +36,14 @@ const Task = () => {
           ))}
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {taskDatas.map((task) => (
-          <TaskCard
-            key={task.id}
-            icon={task.icon}
-            image={task.image}
-            title={task.title}
-            subtitle={task.subtitle}
-            reward={task.reward}
-            participants={task.participants}
-            endDate={task.endDate}
-            status={task.status}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {votingData.map((voting, index) => (
+          <VotingCard
+            key={index}
+            image={voting.image}
+            title={voting.title}
+            votes={voting.votes}
+            totalParticipants={voting.totalParticipants}
           />
         ))}
       </div>
@@ -57,4 +51,4 @@ const Task = () => {
   );
 };
 
-export default Task;
+export default Voting;

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Feed from "./components/home/feed/Feed";
 import Task from "./components/home/task/Task";
 import Sidebar from "./components/sidebar/Sidebar";
+import Voting from "./components/home/voting/Voting";
 
 export default function Home() {
   const [activeItem, setActiveItem] = useState<string>("News Feeds");
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="flex-1 py-8 px-4 md:px-8 md:ml-64">
         {activeItem === "News Feeds" && <Feed />}
         {activeItem === "Tasks" && <Task />}
+        {activeItem === "Voting" && <Voting />}
       </main>
     </div>
   );
