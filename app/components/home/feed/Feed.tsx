@@ -8,7 +8,7 @@ import { suggestedCommunities } from "@/app/data/communityData";
 
 const Feed = () => {
   return (
-    <div className="w-full ">
+    <div className="w-full pb-10">
       <HeroSection />
       <main className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-8">
         {/* News Feed */}
