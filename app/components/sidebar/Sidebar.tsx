@@ -6,6 +6,8 @@ import { RiSettings5Fill } from "react-icons/ri";
 import { MdBarChart } from "react-icons/md";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { CiSquarePlus } from "react-icons/ci";
+import Image from "next/image";
+import profile from "@/public/images/profile.png";
 
 interface SidebarProps {
   activeItem: string;
@@ -66,19 +68,32 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
       </div>
 
       {/* Sidebar for mobile */}
+      {/* Sidebar for mobile */}
       <div className="fixed bottom-0 left-0 right-0 z-10 md:hidden bg-white border-t-2 border-gray-200 shadow-lg flex justify-around py-2">
         {sidebarItems.map((item) => (
           <div
             key={item.label}
-            className={`flex flex-col items-center cursor-pointer ${
+            className={`flex flex-col items-center cursor-pointer my-auto ${
               activeItem === item.label
                 ? "text-rich-sea-sky font-bold"
                 : "text-gray-500"
             }`}
             onClick={() => setActiveItem(item.label)}
           >
-            {item.icon}
-            <span className="text-xs">{item.label}</span>
+            {item.label === "Log Out" ? (
+              <div className="w-[35px] h-[35px] overflow-hidden">
+                <Image
+                  src={profile}
+                  alt="User Avatar"
+                  width={35}
+                  height={35}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              item.icon
+            )}
+            {/* <span className="text-xs">{item.label}</span> */}
           </div>
         ))}
       </div>
