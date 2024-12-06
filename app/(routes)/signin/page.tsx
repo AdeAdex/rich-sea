@@ -136,7 +136,7 @@ const SignInPage = () => {
 
   // Validation function
   const validate = () => {
-    let formErrors = { email: "", password: "" };
+    const formErrors = { email: "", password: "" };
 
     if (!formData.email) {
       formErrors.email = "Email is required";
