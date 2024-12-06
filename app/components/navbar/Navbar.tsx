@@ -8,6 +8,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import whiteVector from "@/public/images/white-vector.png";
 import yellowVector from "@/public/images/yellow-vector.png";
 import { MdLogin } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 import { Menu, rem } from "@mantine/core";
 import Link from "next/link";
 
@@ -78,20 +79,28 @@ const Navbar = () => {
                 alt="User Avatar"
                 width={38}
                 height={38}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover cursor-pointer"
               />
             </Menu.Target>
             <Menu.Dropdown>
               <Menu.Item
                 component={Link}
-                href="/login"
+                href="/signin"
                 leftSection={
                   <MdLogin style={{ width: rem(14), height: rem(14) }} />
                 }
               >
                 Login
               </Menu.Item>
-              <Menu.Item>Option 2</Menu.Item>
+              <Menu.Item
+                component={Link}
+                href="/signin"
+                leftSection={
+                  <FaUser style={{ width: rem(14), height: rem(14) }} />
+                }
+              >
+                Profile
+              </Menu.Item>
             </Menu.Dropdown>
           </Menu>
         </div>

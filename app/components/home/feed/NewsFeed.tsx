@@ -1,8 +1,6 @@
-"use client";
-
 import React, { useState } from "react";
 
-const NewsFeed = () => {
+const NewsFeed = ({ setFilter }: { setFilter: (filter: string) => void }) => {
   const buttons = [
     { id: "recent", label: "Recent" },
     { id: "following", label: "Following" },
@@ -13,10 +11,8 @@ const NewsFeed = () => {
 
   const handleClick = (id: string) => {
     setActiveButton(id);
-    console.log(`${id} button clicked!`); // Example action
+    setFilter(id); // Pass the filter criteria to the parent
   };
-
-
 
   return (
     <div className="px-4 flex flex-col md:flex-row justify-between items-center md:items-start">

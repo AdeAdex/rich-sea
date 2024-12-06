@@ -9,6 +9,7 @@ import { CiSquarePlus } from "react-icons/ci";
 import Image from "next/image";
 import profile from "@/public/images/profile.png";
 import { MdLogin } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 import { Menu, rem } from "@mantine/core";
 import Link from "next/link";
 
@@ -102,14 +103,22 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
                   <Menu.Dropdown>
                     <Menu.Item
                       component={Link}
-                      href="/login"
+                      href="/signin"
                       leftSection={
                         <MdLogin style={{ width: rem(14), height: rem(14) }} />
                       }
                     >
                       Login
                     </Menu.Item>
-                    <Menu.Item>Option 2</Menu.Item>
+                    <Menu.Item
+                      component={Link}
+                      href="/signin"
+                      leftSection={
+                        <FaUser style={{ width: rem(14), height: rem(14) }} />
+                      }
+                    >
+                      Profile
+                    </Menu.Item>
                   </Menu.Dropdown>
                 </Menu>
               </div>

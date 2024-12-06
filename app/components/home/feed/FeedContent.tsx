@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { TfiMoreAlt } from "react-icons/tfi";
 import { BsChatDots } from "react-icons/bs";
@@ -6,6 +6,13 @@ import upvote from "@/public/images/upvote.png";
 import type { StaticImageData } from "next/image";
 
 // Define the Feed interface
+interface Message {
+  name: string;
+  text: string;
+  time: string;
+  avatar: StaticImageData;
+}
+
 interface Feed {
   id: number;
   user: {
@@ -17,10 +24,15 @@ interface Feed {
   content: string;
   image: StaticImageData | null; // Image is optional
   comments: number;
+  messages: Message[]; // Array of messages
 }
 
 const FeedContent = ({ feed, index }: { feed: Feed; index: number }) => {
+  const [showMessages, setShowMessages] = useState(false); // State for dropdown visibility
   const bgClass = index % 2 === 0 ? "bg-rich-sea-light-yellow" : "bg-white";
+
+  const toggleMessages = () => setShowMessages((prev) => !prev); // Toggle dropdown
+
   return (
     <div className={`py-4 px-8 ${bgClass} rounded-lg shadow`}>
       {/* Header Section */}
@@ -65,12 +77,52 @@ const FeedContent = ({ feed, index }: { feed: Feed; index: number }) => {
 
       {/* Footer Section */}
       <div className="flex flex-col md:flex-row gap-8 w-full">
-        <Image src={upvote} alt="upvote" className="mx-auto md:mx-0"/>
-        <div className="flex gap-2 my-auto mx-auto md:mx-0">
+        <Image src={upvote} alt="upvote" className="mx-auto md:mx-0" />
+        <div
+          className="flex gap-2 my-auto mx-auto md:mx-0 cursor-pointer"
+          onClick={toggleMessages} // Toggle message dropdown
+        >
           <BsChatDots size={20} />
           <span>{feed.comments} comments</span>
         </div>
       </div>
+
+      {/* Message Dropdown */}
+      {showMessages && (
+        <div className="mt-4 p-4 rounded-lg">
+          <h4 className="font-medium text-gray-800">Comments</h4>
+          <hr className="my-4 border-t border-gray-200" />
+          <ul className="mt-4 space-y-8">
+            {feed.messages.map((message, idx) => (
+              <li key={idx} className="flex justify-between">
+                <div className="flex gap-3">
+                  <div className="w-10 h-10">
+                    <Image
+                      src={message.avatar}
+                      alt={`${message.name} avatar`}
+                      // width={30}
+                      // height={30}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <div className="flex flex-col font-raleway">
+                    <span className="font-bold text-gray-800">
+                      {message.name}
+                    </span>
+                    <span className="text-sm font-[400] text-gray-600">
+                      {message.text}
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-sm font-raleway font-bold">{message.time}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

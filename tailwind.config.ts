@@ -41,6 +41,7 @@ export default {
         "rich-sea-blue": "#084082",
         "rich-sea-pink": "#FFC2C2",
         "rich-sea-deep-pink": "#FF6868",
+        "rich-sea-light-pink": "#FFF4F4",
         "rich-sea-gray": "#F1F1F1",
         "light-mode": "#fff",
         "dark-mode": "#000",
