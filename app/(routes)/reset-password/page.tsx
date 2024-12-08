@@ -32,18 +32,18 @@ const ResetPasswordPage = () => {
           <input
             type="email"
             placeholder="Email"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 font-raleway font-bold"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 font-raleway font-bold focus:outline-none "
           />
 
           <input
             type="password"
             placeholder="Enter Password"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 font-raleway font-bold"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 font-raleway font-bold focus:outline-none "
           />
           <input
             type="password"
             placeholder="Enter Password"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 font-raleway font-bold"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 font-raleway font-bold focus:outline-none "
           />
 
           {/* Next Button */}
