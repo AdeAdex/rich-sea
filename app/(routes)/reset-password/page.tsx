@@ -53,7 +53,7 @@ const ResetPasswordPage = () => {
 
           {/* Sign-up Link */}
           <p className="text-center text-gray-500 font-raleway font-bold text-sm">
-            Already own an Account?
+            Already own an Account?{" "}
             <Link href="/signup" className="text-rich-sea-yellow text-sm">
               Log in now
             </Link>

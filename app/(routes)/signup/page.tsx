@@ -58,7 +58,7 @@ const SignUpPage = () => {
 
           {/* Sign-up Link */}
           <p className="text-center text-gray-500 text-sm">
-            Already own an Account?
+            Already own an Account?{" "}
             <Link href="/signin" className="text-rich-sea-yellow font-raleway font-bold text-sm">
               Log in now
             </Link>
