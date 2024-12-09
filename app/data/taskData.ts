@@ -21,6 +21,7 @@ export const taskDatas = [
     participants: "6/20",
     endDate: "6th Nov. 24",
     status: "Join Campaign",
+    completed: true,
     tasks: [
       { name: "Follow RichSea on Twitter", completed: true },
       { name: "Engage on our Twitter pinned post", completed: true },
@@ -36,7 +37,7 @@ export const taskDatas = [
     subtitle: "GAMBIT",
     reward: "50,000 SRCH",
     participants: "6/20",
-    endDate: "6th Nov. 24",
+    endDate: "7th Nov. 24",
     status: "Joined",
     tasks: [
       { name: "Share RichSea campaign on Facebook", completed: true },
@@ -54,8 +55,9 @@ export const taskDatas = [
     subtitle: "Hamster Kombat",
     reward: "50,000 SRCH",
     participants: "6/20",
-    endDate: "6th Nov. 24",
+    endDate: "8th Nov. 24",
     status: "Join Campaign",
+    completed: true,
     tasks: [
       { name: "Complete a survey about RichSea", completed: false },
       { name: "Post a testimonial about RichSea", completed: true },
@@ -73,7 +75,7 @@ export const taskDatas = [
     subtitle: "Hamster Kombat",
     reward: "50,000 SRCH",
     participants: "6/20",
-    endDate: "6th Nov. 24",
+    endDate: "6th Dec. 24",
     status: "Join Campaign",
     tasks: [
       { name: "Follow RichSea on LinkedIn", completed: false },
@@ -92,8 +94,9 @@ export const taskDatas = [
     subtitle: "Hamster Kombat",
     reward: "50,000 SRCH",
     participants: "6/20",
-    endDate: "6th Nov. 24",
+    endDate: "2nd Oct. 24",
     status: "Join Campaign",
+    completed: true,
     tasks: [
       { name: "Join the RichSea Discord server", completed: true },
       { name: "Participate in a RichSea discussion", completed: false },
@@ -112,7 +115,7 @@ export const taskDatas = [
     subtitle: "GAMBIT",
     reward: "50,000 SRCH",
     participants: "6/20",
-    endDate: "6th Nov. 24",
+    endDate: "4th Oct. 24",
     status: "Join Campaign",
     tasks: [
       {
@@ -139,7 +142,7 @@ export const taskDatas = [
     subtitle: "Hamster Kombat",
     reward: "50,000 SRCH",
     participants: "6/20",
-    endDate: "6th Nov. 24",
+    endDate: "24th Dec. 24",
     status: "Join Campaign",
     tasks: [
       { name: "Write a post about RichSea on Reddit", completed: false },
@@ -156,8 +159,9 @@ export const taskDatas = [
     subtitle: "Hamster Kombat",
     reward: "50,000 SRCH",
     participants: "6/20",
-    endDate: "6th Nov. 24",
+    endDate: "14th Dec. 24",
     status: "Join Campaign",
+    completed: true,
     tasks: [
       { name: "Create a YouTube video promoting RichSea", completed: false },
       {

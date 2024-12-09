@@ -26,16 +26,43 @@ const Task = () => {
     // You can directly modify the query parameters here
     const updatedParams = new URLSearchParams(searchParams.toString());
     updatedParams.set("task", encodeURIComponent(title));
-    
+
     // Update the URL with the new query parameter while keeping the current pathname
     const newUrl = `${pathname}?${updatedParams.toString()}`;
-    window.history.pushState({}, "", newUrl);  // This will update the URL without a full reload
+    window.history.pushState({}, "", newUrl); // This will update the URL without a full reload
   };
+
+  // Filter tasks based on active button selection
+  const parseDateString = (dateStr: string) => {
+    // Remove ordinal suffixes like "th", "st", "nd", "rd"
+    const cleanedDateStr = dateStr.replace(/(\w)(st|nd|rd|th)\b/g, "$1");
+    return new Date(cleanedDateStr + " 2024"); // Append the year to make it parsable
+  };
+  
+  const filteredTasks = () => {
+    switch (activeButton) {
+      case "recent":
+        return [...taskDatas].sort((a, b) =>
+          parseDateString(b.endDate).getTime() - parseDateString(a.endDate).getTime()
+        );
+  
+      case "completed":
+        return taskDatas.filter((task) => task.completed);
+  
+      default:
+        return taskDatas;
+    }
+  };
+  
+  
+  
 
   return (
     <div className="pb-10">
       <div className="flex flex-col md:flex-row justify-between font-raleway mb-4">
-        <h2 className="text-2xl font-bold text-center md:text-left mb-3 md:mb-0">Tasks</h2>
+        <h2 className="text-2xl font-bold text-center md:text-left mb-3 md:mb-0">
+          Tasks
+        </h2>
         <div className="flex space-x-4 justify-center md:justify-normal">
           {buttons.map((button) => (
             <button
@@ -53,7 +80,7 @@ const Task = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {taskDatas.map((task) => (
+        {filteredTasks().map((task) => (
           <TaskCard
             key={task.id}
             icon={task.icon}
