@@ -55,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
       // Default to the first tab if no "tab" query parameter exists
       setActiveItem(sidebarItems[0].label);
     }
-  }, [pathname, setActiveItem]);
+  }, [pathname, setActiveItem, sidebarItems]);
   
   return (
     <>

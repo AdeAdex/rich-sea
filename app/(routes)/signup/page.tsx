@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
@@ -51,27 +53,30 @@ const SignUpPage = () => {
           </div>
           {/* Formik Form */}
           <Formik
-            const
             initialValues={{
               email: "",
             }}
             validationSchema={signUpValidationSchema}
             onSubmit={handleSubmit}
           >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, errors, touched }) => (
               <Form>
                 {/* Email Input */}
                 <div className="mb-4">
                   <Field
                     type="email"
                     name="email"
-                    placeholder="Email"
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
+                    placeholder="etienodouglas@gmail.com"
+                    className={`w-full border ${
+                      touched.email && errors.email
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    } rounded-lg px-4 py-2 mb-4 focus:outline-none`}
                   />
                   <ErrorMessage
                     name="email"
                     component="div"
-                    className="text-red-500 text-sm mt-1"
+                    className="text-red-500 text-sm italic font-bold font-raleway mb-3"
                   />
                 </div>
                 {/* Submit Button */}
