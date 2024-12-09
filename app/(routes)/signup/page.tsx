@@ -1,10 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
-import logo from "@/public/images/logo-2.png";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import Link from "next/link";
+import logo from "@/public/images/logo-2.png";
+import { signUpValidationSchema } from "@/app/validations/signupValidationSchema";
 
 const SignUpPage = () => {
+  // Form submission handler
+  const handleSubmit = (values: { email: string }) => {
+    console.log("Form Submitted with values:", values);
+    // Add logic to handle the form submission
+  };
+
   return (
     <div className="flex h-screen w-full">
       {/* Left Section */}
@@ -19,10 +27,7 @@ const SignUpPage = () => {
                   alt="RichSea Logo"
                   priority
                   quality={100}
-                  //   width={200} // Default width for larger screens
-                  //   height={30} // Defined height
-
-                  className="object-contain w-[80px] md:w-[100px]" // Updates width for medium and larger screens
+                  className="object-contain w-[80px] md:w-[100px]"
                 />
               </Link>
             </div>
@@ -44,36 +49,62 @@ const SignUpPage = () => {
           <div className="text-center text-gray-500 my-4 text-sm font-[700]">
             Or
           </div>
-          {/* Email Input */}
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4"
-          />
-
-          {/* Sign-in Button */}
-          <button className="w-full bg-rich-sea-sky text-white py-2 rounded-lg mb-4 hover:bg-rich-sea-sky-hover">
-            Next
-          </button>
-
+          {/* Formik Form */}
+          <Formik
+            const
+            initialValues={{
+              email: "",
+            }}
+            validationSchema={signUpValidationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                {/* Email Input */}
+                <div className="mb-4">
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
+                </div>
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-rich-sea-sky text-white py-2 rounded-lg mb-4 hover:bg-rich-sea-sky-hover"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Next"}
+                </button>
+              </Form>
+            )}
+          </Formik>
           {/* Sign-up Link */}
           <p className="text-center text-gray-500 text-sm">
             Already own an Account?{" "}
-            <Link href="/signin" className="text-rich-sea-yellow font-raleway font-bold text-sm">
+            <Link
+              href="/signin"
+              className="text-rich-sea-yellow font-raleway font-bold text-sm"
+            >
               Log in now
             </Link>
           </p>
         </div>
       </div>
-
       {/* Right Section */}
       <div
         className="flex-1 hidden lg:flex justify-center items-center relative"
         style={{
           borderTopRightRadius: "30px",
           borderBottomRightRadius: "30px",
-          overflow: "hidden", // Ensures image respects border radius
-          backgroundColor: "#FFF4F4"
+          overflow: "hidden",
+          backgroundColor: "#FFF4F4",
         }}
       ></div>
     </div>

@@ -11,6 +11,7 @@ interface TaskCardProps {
   participants: string;
   endDate: string;
   status: string;
+  onClick: () => void;
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({
@@ -22,9 +23,10 @@ const TaskCard: React.FC<TaskCardProps> = ({
   participants,
   endDate,
   status,
+  onClick,
 }) => {
   return (
-    <div className="border rounded-lg shadow-md p-4 flex flex-col items-center bg-white font-raleway">
+    <div className="border rounded-lg shadow-md p-4 flex flex-col items-center bg-white font-raleway cursor-pointer" onClick={onClick}>
       {/* Card Image */}
       <div className="w-full h-16 md:h-32 relative">
         <Image

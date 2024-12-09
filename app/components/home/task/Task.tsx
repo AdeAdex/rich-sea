@@ -3,8 +3,12 @@
 import { taskDatas } from "@/app/data/taskData";
 import React, { useState } from "react";
 import TaskCard from "./TaskCard";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const Task = () => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const buttons = [
     { id: "all", label: "All" },
     { id: "recent", label: "Recent" },
@@ -16,6 +20,16 @@ const Task = () => {
   const handleClick = (id: string) => {
     setActiveButton(id);
     console.log(`${id} button clicked!`); // Example action
+  };
+
+  const handleCardClick = (title: string) => {
+    // You can directly modify the query parameters here
+    const updatedParams = new URLSearchParams(searchParams.toString());
+    updatedParams.set("task", encodeURIComponent(title));
+    
+    // Update the URL with the new query parameter while keeping the current pathname
+    const newUrl = `${pathname}?${updatedParams.toString()}`;
+    window.history.pushState({}, "", newUrl);  // This will update the URL without a full reload
   };
 
   return (
@@ -50,6 +64,7 @@ const Task = () => {
             participants={task.participants}
             endDate={task.endDate}
             status={task.status}
+            onClick={() => handleCardClick(task.title)}
           />
         ))}
       </div>

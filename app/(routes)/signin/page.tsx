@@ -1,7 +1,4 @@
-'use client'
-
-
-
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -13,7 +10,16 @@ import logo from "@/public/images/logo-2.png";
 import { signInValidationSchema } from "@/app/validations/signinValidationSchemas";
 import { MdAccountBalanceWallet } from "react-icons/md";
 
+// Define the shape of the form values
+interface SignInFormValues {
+  email: string;
+  password: string;
+}
+
 const SignInPage = () => {
+  const handleSubmit = (values: SignInFormValues) => {
+    console.log("Form Submitted with values:", values);
+  };
   return (
     <div className="flex h-screen w-full">
       {/* Left Section */}
@@ -41,7 +47,8 @@ const SignInPage = () => {
 
           {/* Wallet Button */}
           <button className="w-full bg-black text-white py-2 rounded-lg mb-4 flex justify-center items-center text-sm font-bold font-raleway">
-            <MdAccountBalanceWallet size={22} className="mr-2"/> Connect your wallet
+            <MdAccountBalanceWallet size={22} className="mr-2" /> Connect your
+            wallet
           </button>
 
           {/* Google Sign-in Button */}
@@ -62,9 +69,7 @@ const SignInPage = () => {
               password: "",
             }}
             validationSchema={signInValidationSchema}
-            onSubmit={(values) => {
-              console.log("Form submitted:", values);
-            }}
+            onSubmit={handleSubmit}
           >
             {({ touched, errors }) => (
               <Form>
@@ -77,7 +82,7 @@ const SignInPage = () => {
                     touched.email && errors.email
                       ? "border-red-500"
                       : "border-gray-300"
-                  } rounded-lg px-4 py-2 mb-4`}
+                  } rounded-lg px-4 py-2 mb-4 focus:outline-none`}
                 />
                 <ErrorMessage
                   name="email"
@@ -94,7 +99,7 @@ const SignInPage = () => {
                     touched.password && errors.password
                       ? "border-red-500"
                       : "border-gray-300"
-                  } rounded-lg px-4 py-2 mb-4`}
+                  } rounded-lg px-4 py-2 mb-4 focus:outline-none`}
                 />
                 <ErrorMessage
                   name="password"

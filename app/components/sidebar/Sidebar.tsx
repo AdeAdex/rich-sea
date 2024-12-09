@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
 import { RiSettings5Fill } from "react-icons/ri";
 import { MdBarChart } from "react-icons/md";
@@ -12,6 +12,7 @@ import { MdLogin } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { Menu, rem } from "@mantine/core";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 
 interface SidebarProps {
   activeItem: string;
@@ -24,6 +25,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
   // const toggleSidebar = () => {
   //   setIsCollapsed(!isCollapsed);
   // };
+  const router = useRouter();
+  const pathname = usePathname();
 
   const sidebarItems = [
     { label: "News Feeds", icon: <CiSquarePlus size={24} /> },
@@ -33,6 +36,27 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
     { label: "Log Out", icon: <FaSignOutAlt size={24} /> },
   ];
 
+  const handleTabClick = (tabLabel: string) => {
+    setActiveItem(tabLabel);
+
+    if (tabLabel !== "Log Out") {
+      const queryString = new URLSearchParams({ tab: tabLabel }).toString();
+      router.push(`${pathname}?${queryString}`); 
+    }
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabFromUrl = urlParams.get("tab");
+
+    if (tabFromUrl) {
+      setActiveItem(tabFromUrl);
+    } else {
+      // Default to the first tab if no "tab" query parameter exists
+      setActiveItem(sidebarItems[0].label);
+    }
+  }, [pathname, setActiveItem]);
+  
   return (
     <>
       {/* Sidebar for desktop */}
@@ -62,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
                   ? "bg-rich-sea-sky rounded-xl text-white font-bold"
                   : ""
               } ${item.label === "Log Out" ? "font-[500]" : "font-[800]"}`}
-              onClick={() => setActiveItem(item.label)}
+              onClick={() => handleTabClick(item.label)}
             >
               {item.icon}
               {/* {!isCollapsed && */} <span>{item.label}</span>
@@ -82,9 +106,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
                 : "text-gray-500"
             }`}
             onClick={() => {
-              // Only update activeItem for non-profile items
               if (item.label !== "Log Out") {
-                setActiveItem(item.label);
+                handleTabClick(item.label);
               }
             }}
           >
