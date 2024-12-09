@@ -15,6 +15,12 @@ const Voting = () => {
     setActiveButton(id);
     console.log(`${id} button clicked!`); // Example action
   };
+
+  const filteredVotingData =
+    activeButton === "all"
+      ? votingData
+      : votingData.filter((item) => item.status === activeButton);
+
   return (
     <div className="pb-10 grid grid-cols-1 lg:grid-cols-12 gap-4">
       <div className="w-full md:col-span-9">
@@ -39,7 +45,7 @@ const Voting = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {votingData.map((voting, index) => (
+          {filteredVotingData.map((voting, index) => (
             <VotingCard
               key={index}
               image={voting.image}

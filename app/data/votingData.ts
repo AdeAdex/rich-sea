@@ -1,5 +1,6 @@
 //  /app/data/votingData.ts
 
+
 import voting from "@/public/images/voting.png";
 import voting1 from "@/public/images/voting1.png";
 import voting2 from "@/public/images/voting2.png";
@@ -15,6 +16,7 @@ const votingData = [
       { label: "BNB", count: 63, color: "#77DD77" },
     ],
     totalParticipants: 113,
+    status: "upcoming",
   },
   {
     image: voting1,
@@ -33,6 +35,7 @@ const votingData = [
       { label: "Cardano", count: 85, color: "#03A9F4" },
     ],
     totalParticipants: 175,
+    status: "upcoming",
   },
   {
     image: voting3,
@@ -51,6 +54,7 @@ const votingData = [
       { label: "Coinbase", count: 200, color: "#1E88E5" },
     ],
     totalParticipants: 500,
+    status: "upcoming",
   },
   {
     image: voting3,
@@ -69,6 +73,7 @@ const votingData = [
       { label: "Polkadot", count: 105, color: "#E91E63" },
     ],
     totalParticipants: 215,
+    status: "upcoming",
   },
   {
     image: voting3,
@@ -96,6 +101,7 @@ const votingData = [
       { label: "Optimism", count: 75, color: "#FFC400" },
     ],
     totalParticipants: 160,
+    status: "upcoming",
   },
 ];
 
