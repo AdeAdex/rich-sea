@@ -38,7 +38,7 @@
 
 import React, { Suspense, useState } from "react";
 import Feed from "./components/home/feed/Feed";
-import Task from "./components/home/task/Task";
+// import Task from "./components/home/task/Task";
 import Sidebar from "./components/sidebar/Sidebar";
 import Voting from "./components/home/voting/Voting";
 import Staking from "./components/home/staking/Staking";
