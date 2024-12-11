@@ -34,7 +34,7 @@ const FeedContent = ({ feed, index }: { feed: Feed; index: number }) => {
   const toggleMessages = () => setShowMessages((prev) => !prev); // Toggle dropdown
 
   return (
-    <div className={`py-4 px-8 ${bgClass} rounded-lg shadow`}>
+    <div className={`py-4 px-4 md:px-8 ${bgClass} rounded-lg shadow`}>
       {/* Header Section */}
       <div className="flex justify-between items-center gap-4 md:gap-0">
         <div className="flex gap-3 items-center">
@@ -89,14 +89,14 @@ const FeedContent = ({ feed, index }: { feed: Feed; index: number }) => {
 
       {/* Message Dropdown */}
       {showMessages && (
-        <div className="mt-4 p-4 rounded-lg">
+        <div className="mt-4 md:p-4 rounded-lg">
           <h4 className="font-medium text-gray-800">Comments</h4>
           <hr className="my-4 border-t border-gray-200" />
           <ul className="mt-4 space-y-8">
             {feed.messages.map((message, idx) => (
-              <li key={idx} className="flex justify-between">
+              <li key={idx} className="flex justify-between gap-4 md:p-[unset] w-full">
                 <div className="flex gap-3">
-                  <div className="w-10 h-10">
+                  <div className="w-10 h-10 my-auto flex-shrink-0">
                     <Image
                       src={message.avatar}
                       alt={`${message.name} avatar`}
@@ -106,17 +106,17 @@ const FeedContent = ({ feed, index }: { feed: Feed; index: number }) => {
                     />
                   </div>
                   <div className="flex flex-col font-raleway">
-                    <span className="font-bold text-gray-800">
+                    <span className="text-[12px] md:text-sm font-bold text-gray-800">
                       {message.name}
                     </span>
-                    <span className="text-sm font-[400] text-gray-600">
+                    <span className="text-[12px] md:text-sm font-[400] text-gray-600">
                       {message.text}
                     </span>
                   </div>
                 </div>
 
-                <div>
-                  <span className="text-sm font-raleway font-bold">{message.time}</span>
+                <div className="my-auto">
+                  <span className="text-[12px] md:text-sm font-raleway font-bold whitespace-nowrap">{message.time}</span>
                 </div>
               </li>
             ))}
