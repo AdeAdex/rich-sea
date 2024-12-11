@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
 import { RiSettings5Fill } from "react-icons/ri";
 import { MdBarChart } from "react-icons/md";
@@ -28,13 +28,16 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, setActiveItem }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const sidebarItems = [
-    { label: "News Feeds", icon: <CiSquarePlus size={24} /> },
-    { label: "Tasks", icon: <BsFillRocketTakeoffFill size={24} /> },
-    { label: "Voting", icon: <MdBarChart size={24} /> },
-    { label: "Staking", icon: <RiSettings5Fill size={24} /> },
-    { label: "Log Out", icon: <FaSignOutAlt size={24} /> },
-  ];
+  const sidebarItems = useMemo(
+    () => [
+      { label: "News Feeds", icon: <CiSquarePlus size={24} /> },
+      { label: "Tasks", icon: <BsFillRocketTakeoffFill size={24} /> },
+      { label: "Voting", icon: <MdBarChart size={24} /> },
+      { label: "Staking", icon: <RiSettings5Fill size={24} /> },
+      { label: "Log Out", icon: <FaSignOutAlt size={24} /> },
+    ],
+    []
+  );
 
   const handleTabClick = (tabLabel: string) => {
     setActiveItem(tabLabel);

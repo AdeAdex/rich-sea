@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 
 interface VotingCardProps {
   image: StaticImageData; // Image source URL or path
@@ -16,6 +18,18 @@ const VotingCard: React.FC<VotingCardProps> = ({
   totalParticipants,
 }) => {
 //   const totalVotes = votes.reduce((sum, vote) => sum + vote.count, 0);
+
+const handleClick = (title: string) => {
+  Swal.fire({
+    title: 'Please confirm your selection',
+    text: `Complete this transaction for: ${title}`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Confirm',
+    cancelButtonText: 'Cancel',
+  });
+};
+
 
   return (
     <div className="border rounded-lg shadow-md p-4 bg-white w-full font-raleway">
@@ -71,7 +85,7 @@ const VotingCard: React.FC<VotingCardProps> = ({
         </span>
 
         {/* Vote Button */}
-        <button className="bg-rich-sea-green text-white rounded-xl px-4 py-1 font-semibold">
+        <button className="bg-rich-sea-green text-white rounded-xl px-4 py-1 font-semibold" onClick={() => handleClick(title)}>
           Vote
         </button>
       </div>
